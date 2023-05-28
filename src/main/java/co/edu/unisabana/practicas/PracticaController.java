@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Date;
+
 @RequestMapping("/practicas")
 
 @RestController
@@ -20,17 +20,17 @@ public class PracticaController {
     }
 
     @GetMapping(path = "/todos")
-    public List<PracticaDTO> allEstudiantes(){
+    public List<PracticaDTO> allPracticas(){
         return practicaDTOS;
     }
 
     @GetMapping(path = "/buscarFecha")
-    public List<PracticaDTO> buscarPorFacultad (@RequestParam Date fecha){
+    public List<PracticaDTO> buscarPoFecha (@RequestParam String fecha){
 
         List<PracticaDTO> BuscarPractica = new ArrayList<>();
 
         for (PracticaDTO practicaDTO : practicaDTOS) {
-            if (practicaDTO.getFecha() == fecha) {
+            if (practicaDTO.getFecha().equals(fecha)) {
                 BuscarPractica.add(practicaDTO);
             }
         }

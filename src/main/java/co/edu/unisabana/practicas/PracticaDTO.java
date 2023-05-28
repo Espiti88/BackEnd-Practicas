@@ -31,5 +31,5 @@ public class PracticaDTO {
 
     @NotEmpty(message = "Se requiere una fecha")
     @NotNull(message = "Se requiere rellenar el campo de fecha")
-    private Date fecha;
+    private String fecha;
 }
