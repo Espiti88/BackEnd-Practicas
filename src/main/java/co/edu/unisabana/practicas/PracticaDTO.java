@@ -10,6 +10,10 @@ import java.util.Date;
 @NoArgsConstructor
 public class PracticaDTO {
 
+    @NotEmpty(message = "Se requiere el id de la práctica")
+    @NotNull(message = "Se requiere rellenar el campo de id")
+    private int id;
+
     @NotEmpty(message = "Se requiere el nombre de la empresa")
     @NotNull(message = "Se requiere rellenar el campo de empresa")
     @Size(min = 3)
