@@ -32,4 +32,8 @@ public class PracticaDTO {
     @NotEmpty(message = "Se requiere una fecha")
     @NotNull(message = "Se requiere rellenar el campo de fecha")
     private String fecha;
+
+    @NotEmpty(message = "Se requiere una hora")
+    @NotNull(message = "Se requiere rellenar el campo de hora")
+    private String hora;
 }
