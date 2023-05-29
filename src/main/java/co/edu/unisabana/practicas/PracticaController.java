@@ -15,8 +15,8 @@ public class PracticaController {
     int registro = 1;
 
     @GetMapping(path = "/")
-    public String saludar() {
-        return "Servidor de Prácticas";
+    public Respuesta saludar() {
+        return new Respuesta("Servidor de Prácticas");
     }
 
     @GetMapping(path = "/todos")
@@ -47,7 +47,7 @@ public class PracticaController {
     }
 
     @PutMapping(path = "/actualizar/{codigo}")
-    public String actualizarPractica(@PathVariable("codigo") int codigo, @RequestBody PracticaDTO practicaDTO){
+    public Respuesta actualizarPractica(@PathVariable("codigo") int codigo, @RequestBody PracticaDTO practicaDTO){
 
         for(PracticaDTO laPracticaDTO : practicaDTOS){
 
@@ -57,20 +57,20 @@ public class PracticaController {
                 laPracticaDTO.setTarea(practicaDTO.getTarea());
                 laPracticaDTO.setFecha(practicaDTO.getFecha());
 
-                return "¡Práctica modificada!";
+                return new Respuesta("¡Práctica modificada!");
             }
         }
-        return "¡No se encontró la práctica!";
+        return new Respuesta("¡No se encontró la práctica!");
     }
 
     @DeleteMapping(path = "/eliminar/{id}")
-    public String eliminarPractica(@PathVariable int id) {
+    public Respuesta eliminarPractica(@PathVariable int id) {
         for (PracticaDTO practicaDTO : practicaDTOS) {
             if (practicaDTO.getId() == id) {
                 practicaDTOS.remove(practicaDTO);
-                return "¡Práctica eliminada!";
+                return new Respuesta("¡Práctica eliminada!");
             }
         }
-        return "¡No se encontró la práctica!";
+        return new Respuesta("¡No se encontró la práctica!");
     }
 }
